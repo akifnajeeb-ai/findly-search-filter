@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="A responsive product search and filter interface." />
+  <title>Findly — Search & Filter</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Fraunces:opsz,wght@9..144,600;9..144,700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <main class="page-shell">
+    <section class="hero" aria-labelledby="page-title">
+      <div class="eyebrow"><span></span> CURATED COLLECTIONS</div>
+      <h1 id="page-title">Find your next<br /><em>favorite thing.</em></h1>
+      <p>Explore a hand-picked collection of useful, beautiful everyday products.</p>
+    </section>
+
+    <section class="catalogue" aria-label="Product catalogue">
+      <div class="toolbar">
+        <label class="search-box" for="searchInput">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="6.5"></circle><path d="m16 16 4.2 4.2"></path></svg>
+          <input id="searchInput" type="search" placeholder="Search products..." autocomplete="off" />
+          <kbd>⌘ K</kbd>
+        </label>
+        <button class="filter-toggle" id="filterToggle" aria-expanded="false" aria-controls="filters">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M7 12h10M10 17h4"></path></svg>
+          Filters
+        </button>
+      </div>
+
+      <div class="content-grid">
+        <aside class="filters" id="filters">
+          <div class="filter-heading"><h2>Filters</h2><button id="clearFilters" type="button">Clear all</button></div>
+          <fieldset>
+            <legend>Category</legend>
+            <label><input type="checkbox" name="category" value="Workspace" /> <span>Workspace</span><small>4</small></label>
+            <label><input type="checkbox" name="category" value="Home" /> <span>Home</span><small>3</small></label>
+            <label><input type="checkbox" name="category" value="Wellness" /> <span>Wellness</span><small>3</small></label>
+            <label><input type="checkbox" name="category" value="Travel" /> <span>Travel</span><small>2</small></label>
+          </fieldset>
+          <fieldset>
+            <legend>Price range</legend>
+            <div class="range-labels"><span>$0</span><span id="priceValue">$150+</span></div>
+            <input id="priceRange" type="range" min="20" max="150" value="150" />
+          </fieldset>
+          <fieldset>
+            <legend>Availability</legend>
+            <label><input type="checkbox" name="availability" value="In stock" /> <span>In stock only</span></label>
+          </fieldset>
+        </aside>
+
+        <div class="results-area">
+          <div class="result-meta"><p><strong id="resultCount">12</strong> products found</p><label>Sort by <select id="sortSelect" aria-label="Sort products"><option value="featured">Featured</option><option value="low">Price: Low to high</option><option value="high">Price: High to low</option><option value="name">Name: A to Z</option></select></label></div>
+          <div class="product-grid" id="productGrid"></div>
+          <div class="empty-state" id="emptyState" hidden>
+            <div>⌕</div><h2>Nothing found</h2><p>Try changing your search or filters.</p><button id="resetEmpty" type="button">Reset filters</button>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+  <footer>© 2026 Findly. Made for the small joys.</footer>
+  <script src="script.js"></script>
+</body>
+</html>
